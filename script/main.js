@@ -72,7 +72,10 @@ const showData = async () => {
 const searchMovie = async () => {
   // 1. search-input에 있는 키워드부터 가져오기
   const keyword = searchInput.value.toLowerCase();
-
+  if (!keyword) {
+    alert("검색어를 입력해 주세요.");
+    searchInput.focus();
+  }
   // 2. 화면에 보여주고 있는 movies를 keyword를 이용해서 필터링하기
   // 2-1. movies 가져오기
   const movies = data.results;
