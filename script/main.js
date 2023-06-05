@@ -31,50 +31,37 @@ const getTopRatedMovies = async () => {
 const makeMovieList = (moviesData) => {
   moviesData.forEach((item) => {
     const movieItem = document.createElement("div");
-    //<div></div>
-
     movieItem.setAttribute("id", item.id);
-    // movieItem.id = item.id
-    //<div id></div>
-
     movieItem.classList.add("card-item");
-    // movieItem.className = "card-item
-    //<div id="" class="card-list"></div>
 
-    //<div class="movie-list-container">
-
-    // //이미지 넣기 - 엑박은 도대체 뭐가 문젤까
     const moviePoster = document.createElement("img");
     moviePoster.src = "https://image.tmdb.org/t/p/w500/" + item.poster_path;
-
-    //<div img scr="">
     moviePoster.classList.add("card-img");
     moviePoster.setAttribute("alt", item.title);
     movieItem.append(moviePoster);
 
-    //제목 넣기
     const movieTitle = document.createElement("h3");
     movieTitle.textContent = item.title;
     movieItem.append(movieTitle);
-    // //설명 넣기
+
     const movieDesc = document.createElement("p");
     movieDesc.textContent = item.overview;
     movieItem.append(movieDesc);
-    // //평점 넣기
+
     const voteAverage = document.createElement("p");
     voteAverage.textContent = item.vote_average;
     movieItem.append(voteAverage);
 
-    // Add Movie Click Event
-    movieItem.addEventListener("click", () => {
-      alert(`id : ${item.id}`);
+    const viewDetailsBtn = document.createElement("button");
+    viewDetailsBtn.textContent = "상세페이지";
+    viewDetailsBtn.addEventListener("click", () => {
+      window.location.href = `movie.html?id=${item.id}`;
     });
+    movieItem.append(viewDetailsBtn);
 
     movieListContainer.append(movieItem);
   });
 };
-// ////////////////
-
 const showData = async () => {
   //1.데이터를 가져오기
   data = await getTopRatedMovies();
