@@ -30,7 +30,6 @@ const getTopRatedMovies = async () => {
 
 const makeMovieList = (moviesData) => {
   moviesData.forEach((item) => {
-    //오류
     const movieItem = document.createElement("div");
     //<div></div>
 
@@ -84,16 +83,9 @@ const showData = async () => {
   makeMovieList(data.results);
 };
 
-// searchInput.addEventListener("keypress", (event) => {
-//   if (event.key === "Enter") {
-//     event.preventDefault();
-//     searchBtn.click();
-//   }
-// });
-
 const searchMovie = async () => {
   // 1. search-input에 있는 키워드부터 가져오기
-  const keyword = searchInput.value;
+  const keyword = searchInput.value.toLowerCase();
 
   // 2. 화면에 보여주고 있는 movies를 keyword를 이용해서 필터링하기
   // 2-1. movies 가져오기
@@ -102,7 +94,7 @@ const searchMovie = async () => {
   // 2-2. movies에 filter 함수 쓰기
 
   const filteredMovies = movies.filter((movie) => {
-    if (movie.title.includes(keyword)) {
+    if (movie.title.toLowerCase().includes(keyword)) {
       return true; // 포함
     } else {
       return false; // 필터링
@@ -117,8 +109,12 @@ const searchMovie = async () => {
 };
 
 const addEventForSearch = () => {
-  searchBtn.addEventListener("click", () => {
-    searchMovie();
+  searchBtn.addEventListener("click", searchMovie);
+
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      searchMovie();
+    }
   });
 };
 
