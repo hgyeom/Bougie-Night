@@ -5,15 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
+
+    <script type="module" src="script/main.js" defer></script>
+    <script type="module" src="script/tab.js" defer></script>
+    <script type="module" src="script/boxoffice.js" defer></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>내배캠 최고 평점 영화</title>
   </head>
 
   <body>
     <header>
+      <p class="movie-list-tab">최고 평점</p>
+      <p class="daily-boxoffice-tab">상영작</p>
       <h1>내배캠 최고 평점 영화 콜렉션</h1>
     </header>
-    <main></main>
 
     <div class="form">
       <span>영화 검색 : </span>
@@ -22,16 +27,24 @@
     </div>
     <!-- list -->
     <section class="card-list">
-      <div id="movie-list-container">
+      <div class="movie-list-container">
         <!-- <div></div> movie -->
         <!-- <div></div> movie -->
         <!-- <div></div> movie -->
         <!-- <div></div> movie -->
       </div>
     </section>
+    <section class="daily-boxoffice">
+      <div class="daily-boxoffice-container off">
+        <!-- <div class="daily-movie">
+          <img src="assets/20226411.jpg" class="card-img" />
+          <h3>제목</h3>
+          <p>설명</p>
+          <p>평점</p>
+        </div> -->
+      </div>
+    </section>
 
     <footer></footer>
-
-    <script src="script/main.js"></script>
   </body>
 </html>
