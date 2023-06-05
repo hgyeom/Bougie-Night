@@ -1,4 +1,4 @@
-const movieListContainer = document.querySelector("#movie-list-container");
+const movieListContainer = document.querySelector(".movie-list-container");
 const searchInput = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-btn");
 let data;
@@ -26,7 +26,6 @@ const getTopRatedMovies = async () => {
 };
 
 //??
-//
 
 const makeMovieList = (moviesData) => {
   moviesData.forEach((item) => {
