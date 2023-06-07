@@ -75,9 +75,4 @@ const showMovieDetails = async () => {
   movieGenres.textContent = `장르:${genres.join(", ")}`;
 };
 
-const backButton = document.querySelector("#back-btn");
-backButton.addEventListener("click", () => {
-  history.back();
-});
-
 showMovieDetails();
