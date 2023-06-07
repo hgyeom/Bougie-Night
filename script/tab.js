@@ -8,10 +8,14 @@ const dailyBoxofficeContainer = document.querySelector(
 
 movieListTab.addEventListener("click", () => {
   movieListContainer.className = "movie-list-container";
+  movieListTab.className = "movie-list-tab";
   dailyBoxofficeContainer.className = "daily-boxoffice-container off";
+  dailyBoxofficeTab.className = "daily-boxoffice-tab off";
 });
 
 dailyBoxofficeTab.addEventListener("click", () => {
   movieListContainer.className = "movie-list-container off";
+  movieListTab.className = "movie-list-tab off";
   dailyBoxofficeContainer.className = "daily-boxoffice-container";
+  dailyBoxofficeTab.className = "daily-boxoffice-tab";
 });

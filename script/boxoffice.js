@@ -28,7 +28,7 @@ const makeDailyList = async (movies) => {
 
     movieItem.classList.add("card-item");
 
-    // //이미지 넣기 - 엑박은 도대체 뭐가 문젤까
+    //이미지 넣기
     const moviePoster = document.createElement("img");
     moviePoster.src = `assets/${movie.movieCd}.jpg`;
 
@@ -49,9 +49,10 @@ const makeDailyList = async (movies) => {
     movieItem.append(movieOpen);
 
     // 순위 넣기
-    const voteAverage = document.createElement("p");
-    voteAverage.textContent = movie.rank + "위";
-    movieItem.append(voteAverage);
+    const rank = document.createElement("p");
+    rank.textContent = movie.rank + "위";
+    rank.classList.add("card-rank");
+    movieItem.append(rank);
 
     dailyBoxofficeContainer.append(movieItem);
   });
