@@ -108,6 +108,7 @@ const init = () => {
   showData();
 
   addEventForSearch();
+  searchInput.focus();
 };
 
 init();
