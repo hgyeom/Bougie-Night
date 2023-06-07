@@ -43,6 +43,10 @@ const makeMovieList = (moviesData) => {
     movieTitle.textContent = item.title;
     movieItem.append(movieTitle);
 
+    const movieDesc = document.createElement("p");
+    movieDesc.textContent = item.overview;
+    movieItem.append(movieDesc);
+
     const voteAverage = document.createElement("p");
     voteAverage.textContent = item.vote_average;
     movieItem.append(voteAverage);
