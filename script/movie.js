@@ -13,10 +13,12 @@ const getMovieDetails = async () => {
 
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR`,
+      `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&append_to_response=credits`,
       options
     );
-    return res.json();
+    const data = await res.json();
+
+    return data;
   } catch (err) {
     console.log({ err });
   }
@@ -36,30 +38,39 @@ const showMovieDetails = async () => {
   movieTitle.textContent = movieDetails.title;
   moviePoster.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movieDetails.poster_path})`;
   voteAverage.textContent = `평점: ${movieDetails.vote_average}`;
-  movieOverview.textContent = movieDetails.overview;
+  movieOverview.textContent = `줄거리: ${movieDetails.overview}`;
 
   const director = movieDetails.credits.crew.find(
     (person) => person.job === "Director"
   );
-  if (director) {
-    movieDirector.textContent = `감독: ${director.name}`;
+  movieDirector.textContent = `감독: ${director.name}`;
+
+  const cast = movieDetails.credits.cast.slice(0, 3);
+  movieCast.textContent = "배우:\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0";
+
+  const castContainer = document.createElement("div");
+  castContainer.classList.add("cast-container");
+
+  for (const actor of cast) {
+    const actorContainer = document.createElement("div");
+    actorContainer.classList.add("actor-container");
+
+    const actorImage = document.createElement("img");
+    actorImage.src = `https://image.tmdb.org/t/p/w200/${actor.profile_path}`;
+    actorImage.alt = actor.name;
+
+    const actorName = document.createElement("p");
+    actorName.textContent = actor.name;
+
+    actorContainer.appendChild(actorImage);
+    actorContainer.appendChild(actorName);
+    castContainer.appendChild(actorContainer);
   }
 
-  const cast = movieDetails.credits.cast.slice(0, 3); // 상위 3명의 배우만 표시
-  if (cast.length > 0) {
-    const castList = cast.map((person) => person.name);
-    movieCast.textContent = `출연: ${castList.join(", ")}`;
-  }
+  movieCast.appendChild(castContainer);
 
   const genres = movieDetails.genres.map((genre) => genre.name);
-  if (genres.length > 0) {
-    movieGenres.textContent = `장르: ${genres.join(", ")}`;
-  }
-
-  const posterAspectRatio = movieDetails.poster_path
-    ? movieDetails.poster_path.width / movieDetails.poster_path.height
-    : 0.67;
-  moviePoster.style.height = `${moviePoster.offsetWidth / posterAspectRatio}px`;
+  movieGenres.textContent = `장르:${genres.join(", ")}`;
 };
 
 const backButton = document.querySelector("#back-btn");
