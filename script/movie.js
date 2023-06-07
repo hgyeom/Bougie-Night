@@ -1,5 +1,15 @@
+// 변수 선언부
+// url로 데이터 받기
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
+// html요소 변수 선언
+const movieTitle = document.querySelector("#movie-title");
+const moviePoster = document.querySelector("#movie-poster");
+const voteAverage = document.querySelector("#vote-average");
+const movieOverview = document.querySelector("#movie-overview");
+const movieDirector = document.querySelector("#movie-director");
+const movieCast = document.querySelector("#movie-cast");
+const movieGenres = document.querySelector("#movie-genres");
 
 const getMovieDetails = async () => {
   const options = {
@@ -25,14 +35,6 @@ const getMovieDetails = async () => {
 };
 
 const showMovieDetails = async () => {
-  const movieTitle = document.querySelector("#movie-title");
-  const moviePoster = document.querySelector("#movie-poster");
-  const voteAverage = document.querySelector("#vote-average");
-  const movieOverview = document.querySelector("#movie-overview");
-  const movieDirector = document.querySelector("#movie-director");
-  const movieCast = document.querySelector("#movie-cast");
-  const movieGenres = document.querySelector("#movie-genres");
-
   const movieDetails = await getMovieDetails();
 
   movieTitle.textContent = movieDetails.title;
