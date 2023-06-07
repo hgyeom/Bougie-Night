@@ -5,12 +5,14 @@ const movieListContainer = document.querySelector(".movie-list-container");
 const dailyBoxofficeContainer = document.querySelector(
   ".daily-boxoffice-container"
 );
+const searchBox = document.querySelector(".form");
 
 movieListTab.addEventListener("click", () => {
   movieListContainer.className = "movie-list-container";
   movieListTab.className = "movie-list-tab";
   dailyBoxofficeContainer.className = "daily-boxoffice-container off";
   dailyBoxofficeTab.className = "daily-boxoffice-tab off";
+  searchBox.className = "form";
 });
 
 dailyBoxofficeTab.addEventListener("click", () => {
@@ -18,4 +20,5 @@ dailyBoxofficeTab.addEventListener("click", () => {
   movieListTab.className = "movie-list-tab off";
   dailyBoxofficeContainer.className = "daily-boxoffice-container";
   dailyBoxofficeTab.className = "daily-boxoffice-tab";
+  searchBox.className = "form off";
 });

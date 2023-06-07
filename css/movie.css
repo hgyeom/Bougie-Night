@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 header {
   background-color: white;
   display: grid;
@@ -5,19 +11,6 @@ header {
   justify-items: center;
   padding: 30px 0;
   color: black;
-}
-
-header h1 {
-  align-items: center;
-}
-/* 탭 버튼 */
-.movie-tab {
-  display: flex;
-  cursor: pointer;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 1em;
 }
 
 #movie-poster {
@@ -31,23 +24,6 @@ header h1 {
 body {
   background-color: #222222;
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-#back-btn {
-  padding: 8px 16px;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 18px; /* 글씨 크기 그대로 유지 */
-  font-weight: bold;
-}
-
-#back-btn:hover {
-  background-color: #219653;
 }
 
 .background-container {
@@ -71,7 +47,7 @@ body {
   color: #fff;
 }
 
-#movie-title {
+.movie-title {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -89,6 +65,7 @@ body {
 #movie-overview {
   font-size: 18px;
   line-height: 1.5;
+  margin-top: 15px;
 }
 
 .cast-container {
@@ -101,6 +78,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-right: 20px;
+  margin-top: 15px;
 }
 
 .actor-container img {
@@ -114,4 +92,8 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
+}
+
+#movie-genres {
+  margin-top: 20px;
 }
