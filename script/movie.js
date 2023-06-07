@@ -40,7 +40,11 @@ const showMovieDetails = async () => {
   movieTitle.textContent = movieDetails.title;
   moviePoster.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movieDetails.poster_path})`;
   voteAverage.textContent = `평점: ${movieDetails.vote_average}`;
-  movieOverview.textContent = `줄거리: ${movieDetails.overview}`;
+  if (movieDetails.overview) {
+    movieOverview.textContent = `줄거리: ${movieDetails.overview}`;
+  } else {
+    movieOverview.textContent = `줄거리 정보가 없습니다.`;
+  }
 
   const director = movieDetails.credits.crew.find(
     (person) => person.job === "Director"
