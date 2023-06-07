@@ -15,7 +15,7 @@ const getTopRatedMovies = async () => {
   };
   try {
     const res = await fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+      "https://api.themoviedb.org/3/movie/now_playing?language=ko-kr&page=1'",
       options
     );
 
@@ -43,20 +43,13 @@ const makeMovieList = (moviesData) => {
     movieTitle.textContent = item.title;
     movieItem.append(movieTitle);
 
-    const movieDesc = document.createElement("p");
-    movieDesc.textContent = item.overview;
-    movieItem.append(movieDesc);
-
     const voteAverage = document.createElement("p");
     voteAverage.textContent = item.vote_average;
     movieItem.append(voteAverage);
 
-    const viewDetailsBtn = document.createElement("button");
-    viewDetailsBtn.textContent = "상세페이지";
-    viewDetailsBtn.addEventListener("click", () => {
+    movieItem.addEventListener("click", () => {
       window.location.href = `movie.html?id=${item.id}`;
     });
-    movieItem.append(viewDetailsBtn);
 
     movieListContainer.append(movieItem);
   });
