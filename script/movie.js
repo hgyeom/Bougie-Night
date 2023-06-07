@@ -27,6 +27,9 @@ const showMovieDetails = async () => {
   const moviePoster = document.querySelector("#movie-poster");
   const voteAverage = document.querySelector("#vote-average");
   const movieOverview = document.querySelector("#movie-overview");
+  const movieDirector = document.querySelector("#movie-director");
+  const movieCast = document.querySelector("#movie-cast");
+  const movieGenres = document.querySelector("#movie-genres");
 
   const movieDetails = await getMovieDetails();
 
@@ -34,6 +37,24 @@ const showMovieDetails = async () => {
   moviePoster.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movieDetails.poster_path})`;
   voteAverage.textContent = `평점: ${movieDetails.vote_average}`;
   movieOverview.textContent = movieDetails.overview;
+
+  const director = movieDetails.credits.crew.find(
+    (person) => person.job === "Director"
+  );
+  if (director) {
+    movieDirector.textContent = `감독: ${director.name}`;
+  }
+
+  const cast = movieDetails.credits.cast.slice(0, 3); // 상위 3명의 배우만 표시
+  if (cast.length > 0) {
+    const castList = cast.map((person) => person.name);
+    movieCast.textContent = `출연: ${castList.join(", ")}`;
+  }
+
+  const genres = movieDetails.genres.map((genre) => genre.name);
+  if (genres.length > 0) {
+    movieGenres.textContent = `장르: ${genres.join(", ")}`;
+  }
 
   const posterAspectRatio = movieDetails.poster_path
     ? movieDetails.poster_path.width / movieDetails.poster_path.height
