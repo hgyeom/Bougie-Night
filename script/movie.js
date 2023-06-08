@@ -131,13 +131,13 @@ function onEditorFormSubmit(e) {
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
   if (title === "") {
     e.preventDefault();
-    alert("성함을 해주세요");
+    alert("성함을 입력해 주세요");
   } else if (psw === "") {
     e.preventDefault();
-    alert("비밀번호를 입력해주세요");
+    alert("비밀번호를 입력해 주세요");
   } else if (content === "") {
     e.preventDefault();
-    alert("후기를 작성해주세요");
+    alert("후기를 작성해 주세요");
   } else if (!lists) {
     const objArr = [];
     objArr.push({
