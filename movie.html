@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화정보</title>
     <link rel="stylesheet" href="css/movie.css" />
-    <script src="script/movie.js" defer></script>
+    <script type="module" src="script/api.js"></script>
+    <script type="module" src="script/movie.js"></script>
+    
   </head>
 
   <body>
@@ -23,21 +25,19 @@
         <div id="movie-poster"></div>
         <div class="movie-details">
           <h1 class="movie-title" id="movie-title"></h1>
-
-            <h3>장르</h3>
-            <p id="movie-genres"></p>
-
+          <h3>장르</h3>
+          <p id="movie-genres"></p>
           <h3>평점</h3>
           <p id="vote-average" class="movie-rating"></p>
           <h3>감독</h3>
           <p id="movie-director"></p>
-          <h3>배우</h3>
+          <h3 class="actor">배우</h3>
           <div id="movie-cast" class="cast-container"></div>
         </div>
       </div>
-      <h3 class="conten">줄거리</h3>
+      <h3>줄거리</h3>
       <p id="movie-overview" class="movie-overview"></p>
-
+      <iframe class="trailer" width="800" height="450"></iframe>
 
       <!-- 김우리 -->
           <div class="modal" style="display: none;">
@@ -50,7 +50,6 @@
         </div>
         <main class="main__container">
             <div class="editor__container">
-              <h2>후기를 작성해 주세요</h2>
                 <form action="#" class="editor__form" id="editor-form">
                     <input type="text"
                     class="editor__title-input"

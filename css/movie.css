@@ -160,6 +160,10 @@ header img {
   filter: blur(5px);
 }
 
+.trailer{
+  margin-top: 15px;
+}
+
 /* 김우리 */
 
 .modal {
