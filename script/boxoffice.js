@@ -3,17 +3,11 @@ const dailyBoxofficeContainer = document.querySelector(
   ".daily-boxoffice-container"
 );
 let data;
-// let movieDetail;
 
 const getDailyList = async () => {
   data = await getDailyBoxofficeList();
   makeDailyList(data.boxOfficeResult.dailyBoxOfficeList);
 };
-
-// const getMovieDetail = async (movieCd) => {
-//   movieDetail = await getDailyMovie(movieCd);
-//   return movieDetail.movieInfoResult.movieInfo;
-// };
 
 getDailyList();
 
