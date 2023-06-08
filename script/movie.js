@@ -1,3 +1,5 @@
+import { getMovieTrailer } from "./api.js";
+
 // 변수 선언부
 // url로 데이터 받기
 const urlParams = new URLSearchParams(window.location.search);
@@ -11,6 +13,7 @@ const movieOverview = document.querySelector("#movie-overview");
 const movieDirector = document.querySelector("#movie-director");
 const movieCast = document.querySelector("#movie-cast");
 const movieGenres = document.querySelector("#movie-genres");
+const movieTrailer = document.querySelector(".trailer");
 
 const getMovieDetails = async () => {
   const options = {
@@ -37,6 +40,13 @@ const getMovieDetails = async () => {
 
 const showMovieDetails = async () => {
   const movieDetails = await getMovieDetails();
+  const movieTrailerData = await getMovieTrailer(movieId);
+  if(movieTrailerData.results.length > 0){
+    const movieKey = movieTrailerData.results[0].key
+    movieTrailer.src = `https://www.youtube.com/embed/${movieKey}`
+  } else{
+    movieTrailer.style.display = 'none'
+  }
 
   movieTitle.textContent = movieDetails.title;
   movieBackdrop.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path})`;
