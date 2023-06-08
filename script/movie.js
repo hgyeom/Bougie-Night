@@ -110,7 +110,7 @@ function assignIndex() {
   }
 }
 
-// 제출 / 작성하기 enter
+// 제출 / 작성하기 enter//
 function onEditorFormSubmit(e) {
   e.preventDefault();
 
