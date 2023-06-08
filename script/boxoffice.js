@@ -11,14 +11,26 @@ const getDailyList = async () => {
 
 getDailyList();
 
-// 만들기
+let box_id = [
+  955555, 447365, 207567, 447277, 385687, 502356, 876797, 955666, 467885,
+  916224,
+];
+let box_index = 0;
+
 const makeDailyList = async (movies) => {
   movies.forEach(async (movie) => {
     console.log(movie);
 
     const movieItem = document.createElement("div");
+    const id = box_id[box_index];
+    movieItem.setAttribute("id", id);
+    console.log(id);
 
-    movieItem.setAttribute("id", movie.id);
+    movieItem.addEventListener("click", () => {
+      window.location.href = `movie.html?id=${id}`;
+    });
+
+    box_index++;
 
     movieItem.classList.add("card-item");
 
