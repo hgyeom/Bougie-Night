@@ -92,7 +92,7 @@ const showMovieDetails = async () => {
 
 showMovieDetails();
 
-// 김우리
+// /////// 김우리 /////////////////////////////////////////////////////////////////////////////
 const boardTableBody = document.querySelector("#board-body");
 
 const contentsContainer = document.querySelector(".contents__container");
@@ -179,29 +179,6 @@ function onEditorFormSubmit(e) {
 function delInfo(btnId) {
   const modal = document.querySelector(".modal");
   modal.style.display = "block";
-
-  // 그 버튼을 클릭하면 localStorage에서 btnId가 일치하는 놈을 삭제하면 됨
-  const pswInput = document.querySelector("#editor-psw-input");
-
-  // pswInput.value -> 입력한 password가 나올 듯?
-
-  // pswInput.value와 listData에서 btnId와 review.num이 같은 놈을 찾아서 -> find 메서드 사용
-  const review = listData.find((review) => review.num === btnId);
-  // review.password === pswInput.value 같은지 확인
-
-  // 같으면 아래 실행
-
-  const listData = JSON.parse(localStorage.getItem(BOARDLIST_LS));
-
-  const filtered = listData.filter((review) => review.num !== btnId);
-
-  // review 전체
-  console.log({ listData });
-
-  // 선택한 놈 제외하고 필터링된 reviews
-  console.log({ filtered });
-  // localStorage.setItem(filtered);
-  // 새로고침 -> window.location.reload();
 }
 document.addEventListener("mouseup", function (e) {
   const modal = document.querySelector(".modal");
@@ -209,15 +186,6 @@ document.addEventListener("mouseup", function (e) {
     modal.style.display = "none";
   }
 });
-
-// const arrList = JSON.parse(localStorage.getItem(BOARDLIST_LS));
-//     arrList.forEach((arr, passwards) => {
-//     if(passwards === ''){
-//         removeItem('')
-//     }else{
-//         alert('Passward is wrong!');
-//     }
-// })
 
 // localStorage 저장하고 불러오기
 function showBoardLists() {
@@ -232,15 +200,9 @@ function showBoardLists() {
       tdNum.classList.add("board__content-column");
       tdNum.textContent = list.num;
 
-      // const aTitle = document.createElement('a');
-      // aTitle.href = '#';
-      // aTitle.id = `link-to-content${index}`;
-
       const tdContent = document.createElement("td");
       tdContent.classList.add("board__content-column");
       tdContent.textContent = list.content;
-
-      // aTitle.appendChild(tdContent);
 
       const tdAuthor = document.createElement("td");
       tdAuthor.classList.add("board__content-column");
@@ -271,7 +233,7 @@ function showBoardLists() {
       tr.appendChild(removeBtn);
 
       boardTableBody.appendChild(tr);
-      const linkToContent = document.querySelector(`#link-to-content${index}`);
+      // const linkToContent = document.querySelector(`#link-to-content${index}`);
       // linkToContent.addEventListener('click', onTitleClick);
 
       // 게시글 5개[인덱싱번호] 이상 시 페이지 넘어가게
@@ -311,15 +273,9 @@ function showBoardListsNewPage(pageIndex) {
       tdNum.classList.add("board__content-column");
       tdNum.textContent = list.num;
 
-      // const aTitle = document.createElement('a');
-      // aTitle.href = '#';
-      // aTitle.id = `link-to-content${index}`;
-
       const tdContent = document.createElement("td");
       tdContent.classList.add("board__content-column");
       tdContent.textContent = list.content;
-
-      // aTitle.appendChild(tdContent);
 
       const tdAuthor = document.createElement("td");
       tdAuthor.classList.add("board__content-column");
@@ -333,10 +289,15 @@ function showBoardListsNewPage(pageIndex) {
       tdViews.classList.add("board__content-column");
       tdViews.textContent = list.views;
 
-      const removeBtn = document.createElement("td");
+      const removeBtn = document.createElement("button");
       removeBtn.classList.add("board__Btn-column");
-      removeBtn.textContent = list.delBtn;
-
+      removeBtn.textContent = "❌";
+      removeBtn.id = list.num;
+      removeBtn.addEventListener("click", () => {
+        // 모달창 띄우기
+        // showModal(removeBtn.id);
+        delInfo(removeBtn.id);
+      });
       tr.appendChild(tdNum);
       tr.appendChild(tdContent);
       tr.appendChild(tdAuthor);
@@ -345,11 +306,6 @@ function showBoardListsNewPage(pageIndex) {
       tr.appendChild(removeBtn);
 
       boardTableBody.appendChild(tr);
-      // const linkToContent = document.querySelector(
-      // `#link-to-content${index}`
-      // );
-      // linkToContent.addEventListener('click', onTitleClick);
-      //
     }
   });
 }
