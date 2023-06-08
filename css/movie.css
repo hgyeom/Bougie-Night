@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap");
+
 * {
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: "IBM Plex Sans KR", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -13,6 +14,10 @@ header {
   justify-items: center;
   padding: 30px 0;
   color: black;
+}
+
+header img{
+  cursor: pointer;
 }
 
 #movie-poster {
@@ -29,20 +34,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.background-container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#movie-background {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
 .content-container {
   display: flex;
   justify-content: center;
@@ -50,7 +41,10 @@ body {
   flex-direction: column;
   margin-top: 20px;
   padding: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .movie-flex {
@@ -87,8 +81,8 @@ body {
   font-weight: 600;
   margin: 10px 0px 10px 0px;
   padding-left: 40px;
-
 }
+<<<<<<< HEAD
 #movie-genres,
 #vote-average,
 #movie-director {
@@ -98,6 +92,8 @@ body {
 /* #vote-average {
   margin: 10px;
 } */
+=======
+>>>>>>> ce0833125b672ed69e27d5dfb1a63da76f106dcb
 
 #movie-overview {
   width: 800px;
@@ -126,12 +122,17 @@ body {
   margin-bottom: 10px;
 }
 
-/* #movie-genres {
-  margin: 5px 0px 5px 0px;
-} */
-
-
-
+#movie-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(5px);
+}
 
 
 /* 김우리 */
@@ -148,7 +149,7 @@ body {
   box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
-.modalBody{
+.modalBody {
   text-align: center;
   margin: 0 auto;
 }
@@ -219,7 +220,7 @@ input {
 .contents__container {
   margin: 10px 0px;
   height: 220px;
-  padding: 10px ;
+  padding: 10px;
   padding: 10px;
   border-radius: 15px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
@@ -236,7 +237,6 @@ input {
   background-color: rgba(255, 255, 255, 0.16);
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
-
 
 /* Board Lists */
 table {
@@ -263,14 +263,14 @@ tr {
   all: unset;
   margin-right: 5px;
 }
-.board__contents{
+.board__contents {
   border-radius: 5px;
   background-color: #ffffff9d;
   color: #222222;
   margin-top: 10px;
   font-weight: 600;
 }
-.board__content{
+.board__content {
   border: 1px solid black;
   border-radius: 20px;
 }
@@ -300,7 +300,7 @@ color: blue;
 .contents__content {
   width: 600px;
   display: flex;
-  justify-content: start; 
+  justify-content: start;
   align-items: center;
 }
 
@@ -313,7 +313,6 @@ color: blue;
   flex-direction: column;
   position: relative;
 }
-
 
 .editor__psw-input {
   margin-left: 20px;
@@ -334,7 +333,7 @@ color: blue;
   height: 40px;
 }
 
-.editor__btn {        
+.editor__btn {
   position: absolute;
   right: -20px;
   /* all: unset; */
@@ -342,7 +341,7 @@ color: blue;
   border-radius: 5px;
   padding: 5px 10px;
   background-color: rgb(218, 64, 3);
-  color:#ffffff;
+  color: #ffffff;
   font-weight: 600;
 }
 a:link {
@@ -352,4 +351,7 @@ a:link {
 }
 button:active {
   transform: scale(0.93);
+}
+.content-container {
+  position: relative;
 }

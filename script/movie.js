@@ -4,6 +4,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
 // html요소 변수 선언
 const movieTitle = document.querySelector("#movie-title");
+const movieBackdrop = document.querySelector("#movie-backdrop");
 const moviePoster = document.querySelector("#movie-poster");
 const voteAverage = document.querySelector("#vote-average");
 const movieOverview = document.querySelector("#movie-overview");
@@ -38,6 +39,7 @@ const showMovieDetails = async () => {
   const movieDetails = await getMovieDetails();
 
   movieTitle.textContent = movieDetails.title;
+  movieBackdrop.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path})`;
   moviePoster.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movieDetails.poster_path})`;
   voteAverage.textContent = `${movieDetails.vote_average}`;
   if (movieDetails.overview) {
