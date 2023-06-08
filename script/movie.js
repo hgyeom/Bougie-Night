@@ -383,6 +383,7 @@ function showBoardListsNewPage(pageIndex) {
         // `#link-to-content${index}`
         // );
         // linkToContent.addEventListener('click', onTitleClick);
+        //
     }
 
     });
