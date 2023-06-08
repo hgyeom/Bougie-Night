@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap');
-=======
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap");
->>>>>>> ce0833125b672ed69e27d5dfb1a63da76f106dcb
 
 * {
   font-family: "IBM Plex Sans KR", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
-  font-family: 'IBM Plex Sans KR', sans-serif;
-=======
->>>>>>> ce0833125b672ed69e27d5dfb1a63da76f106dcb
 }
 
 body {
@@ -47,7 +39,6 @@ header > h1 {
 .daily-boxoffice-tab {
   border-bottom: 2px solid #f66;
   margin-bottom: 34px;
-  
 }
 
 .movie-list-tab.off {
@@ -102,7 +93,9 @@ header > h1 {
   padding: 20px 0;
   border-bottom: 1px solid black;
 }
-
+.form-content {
+  margin-left: 100px;
+}
 #search-input {
   border-radius: 8px;
   margin-left: 10px;
@@ -124,7 +117,7 @@ header > h1 {
   padding: 4px;
   font-weight: 600;
 }
-#vote{
+#vote {
   border-radius: 5px;
   margin-left: 5px;
   padding: 4px;
