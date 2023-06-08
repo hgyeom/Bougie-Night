@@ -33,6 +33,54 @@
       </div>
       <h3>줄거리</h3>
       <p id="movie-overview" class="movie-overview"></p>
+
+      
+      <!-- 김우리 -->
+          <div class="modal" style="display: none;">
+            <div class="modalBody">
+                <h1>후기 삭제</h1>
+                <input type="text" class="modalPsw"
+                placeholder="등록한 비밀번호를 입력해주세요.">
+                <button >삭제</button>
+            </div>
+        </div>
+        <main class="main__container">
+            <div class="editor__container">
+                <form action="#" class="editor__form" id="editor-form">
+                    <input type="text" autofocus
+                    class="editor__title-input"
+                    id="editor-title-input"
+                    placeholder="작성자"
+                    />
+                    <input type="text"
+                    class="editor__psw-input"
+                    id="editor-psw-input"
+                    placeholder="pw"
+                    />
+                    <input type="text"
+                    class="editor__content-input"
+                    id="editor-content-input"
+                    placeholder="내용"
+                    />
+                    <button class="editor__btn" id="editor-submit-btn">작성 완료</button>
+                </form>
+            </div>
+            <div class="board__container">
+                <table class="board">
+                    <thead class="board__table-head">
+                    <tr class="board__titles">
+                        <th class="board__column">번호</th>
+                        <th class="board__column">후기</th>
+                        <th class="board__column">작성자</th>
+                        <th class="board__column">작성일</th>
+                        <th class="board__column">조회</th>
+                    </tr>
+                    </thead>
+                    <tbody class="board__contents" id="board-body"></tbody>
+                </table>
+                <div class="board__index-container" id="index-container"></div>
+            </div>
+            <div class="contents__container"></div>
     </div>
   </body>
 </html>
