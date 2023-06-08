@@ -41,11 +41,11 @@ const getMovieDetails = async () => {
 const showMovieDetails = async () => {
   const movieDetails = await getMovieDetails();
   const movieTrailerData = await getMovieTrailer(movieId);
-  if(movieTrailerData.results.length > 0){
-    const movieKey = movieTrailerData.results[0].key
-    movieTrailer.src = `https://www.youtube.com/embed/${movieKey}`
-  } else{
-    movieTrailer.style.display = 'none'
+  if (movieTrailerData.results.length > 0) {
+    const movieKey = movieTrailerData.results[0].key;
+    movieTrailer.src = `https://www.youtube.com/embed/${movieKey}?autoplay=1&mute=1`;
+  } else {
+    movieTrailer.style.display = "none";
   }
 
   movieTitle.textContent = movieDetails.title;
@@ -109,56 +109,6 @@ let nums = 1;
 let date = new Date();
 let views = Math.floor(Math.random() * 99) + 1;
 let delBtn = "X";
-
-// function onTitleClick(e) {
-//     contentsContainer.textContent = '';
-//     const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
-//     const index = e.target.parentNode.id.replace(/[a-z|-]/gi, '');
-
-//     const contentsTitles = document.createElement('div');
-//     contentsTitles.classList.add('contents__titles');
-
-//     const contentsColumnFirst = document.createElement('div');
-//     contentsColumnFirst.classList.add('contents__column');
-
-//     const contentsTitle = document.createElement('div');
-//     contentsTitle.classList.add('contents__title');
-//     contentsTitle.textContent = lists[index].title;
-
-//     // contents__titles > column >author, date, views
-//     const contentsColumnSecond = document.createElement('div');
-//     contentsColumnSecond.classList.add('contents__column');
-
-//     const contentsAuthor = document.createElement('div');
-//     contentsAuthor.classList.add('contents__author');
-//     contentsAuthor.textContent = lists[index].author;
-
-//     const contentsDate = document.createElement('div');
-//     contentsDate.classList.add('contents__date');
-//     contentsDate.textContent = lists[index].date;
-
-//     const contentsViews = document.createElement('div');
-//     contentsViews.classList.add('contents__views');
-//     contentsViews.textContent = lists[index].views;
-
-//     const contentsContent = document.createElement('div');
-//     contentsContent.classList.add('contents__content');
-//     contentsContent.textContent = lists[index].content;
-
-//     contentsColumnFirst.appendChild(contentsTitle);
-
-//     contentsColumnSecond.appendChild(contentsAuthor);
-//     contentsColumnSecond.appendChild(contentsDate);
-//     contentsColumnSecond.appendChild(contentsViews);
-
-//     contentsTitles.appendChild(contentsColumnFirst);
-//     contentsTitles.appendChild(contentsColumnSecond);
-
-//     contentsContainer.appendChild(contentsTitles);
-//     contentsContainer.appendChild(contentsContent);
-// }
-
-/////////////////
 
 //인덱싱 ()
 function assignIndex() {
