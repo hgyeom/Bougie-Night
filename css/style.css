@@ -16,7 +16,7 @@ header {
   margin: 0 auto;
   background-color: #ebebeb;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   justify-items: center;
   padding: 30px 0;
   color: black;
