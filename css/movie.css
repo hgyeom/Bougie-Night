@@ -6,19 +6,41 @@
   margin: 0;
   padding: 0;
 }
-.trailer{
-  margin-top: 15px;
+
+body {
+  background-color: #ebebeb;
+  font-family: Arial, sans-serif;
 }
+
 header {
-  background-color: white;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #ebebeb;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   padding: 30px 0;
   color: black;
 }
-header h1 {
+
+.detail-tab {
+  font-weight: 600;
+  margin-left: 38px;
+  letter-spacing: -1px;
+}
+
+header > h1 {
   font-size: 45px;
+  padding: 0px 10px 0px 10px;
+  background-color: #ffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+header > h1 > a {
+  cursor: pointer;
+  color: #222222;
+  text-decoration: none;
 }
 
 header img {
@@ -32,11 +54,7 @@ header img {
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
-}
-
-body {
-  background-color: #222222;
-  font-family: Arial, sans-serif;
+  box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .content-container {
@@ -63,7 +81,7 @@ body {
 .movie-title {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 0 0 24px 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -125,6 +143,7 @@ body {
   width: 70%;
   height: 200px;
   margin-bottom: 10px;
+  box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .conten {
   font-size: 25px;
@@ -139,6 +158,10 @@ body {
   background-position: center;
   z-index: -1;
   filter: blur(5px);
+}
+
+.trailer{
+  margin-top: 15px;
 }
 
 /* 김우리 */
@@ -169,9 +192,11 @@ body {
 .modalPsw {
   width: 240px;
   height: 30px;
+  color: #222222;
 }
 .modalBody > button {
   height: 30px;
+  padding: 0 5px 0 5px;
   border-radius: 5px;
   color: #ffffff;
   background-color: rgb(218, 64, 3);
@@ -215,7 +240,7 @@ input {
 
 .board__container {
   width: 100%;
-  margin: 10px 0px 0px 0px;
+  margin: 25px 0px 0px 0px;
   height: 220px;
   padding: 15px 0 15px 0;
   border-radius: 15px;
