@@ -1,98 +1,41 @@
-import { getMovieTrailer } from "./api.js";
+// [
+// // const form = document.querySelector('form');
 
-// 변수 선언부
-// url로 데이터 받기
-const urlParams = new URLSearchParams(window.location.search);
-const movieId = urlParams.get("id");
-// html요소 변수 선언
-const movieTitle = document.querySelector("#movie-title");
-const movieBackdrop = document.querySelector("#movie-backdrop");
-const moviePoster = document.querySelector("#movie-poster");
-const voteAverage = document.querySelector("#vote-average");
-const movieOverview = document.querySelector("#movie-overview");
-const movieDirector = document.querySelector("#movie-director");
-const movieCast = document.querySelector("#movie-cast");
-const movieGenres = document.querySelector("#movie-genres");
-const movieTrailer = document.querySelector(".trailer");
+// // const nam = document.querySelector('#name');
+// // const pwd = document.querySelector('#pwd');
+// // const btn = document.querySelector('#btn');
+// // const area = document.querySelector('.area');
 
-const getMovieDetails = async () => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMmM2NTM3MzM2MTZlYzdhYTk3MDBiMGI1MTgzOTFlZSIsInN1YiI6IjY0NzA4OWI4NTQzN2Y1MDBhOTA3OGEzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4TOmGfbPiOIwgNU0M00BbY9FUDSbcgf9kIpQjieBgPc",
-    },
-  };
+// // const a = nam.addEventListener("keydown", () =>{
+// //     localStorage.setItem("id", nam.value);
+// // })
+// // const b = pwd.addEventListener("keydown", () =>{
+// //     localStorage.setItem("pw", pwd.value);
+// // })
+// // const c = area.addEventListener("keydown", () =>{
+// //     localStorage.setItem("review", area.value);
+// // })
+// // const todo = [a,b,c];
+// // console.log(a);
+// // const todoString = JSON.stringify(todo)
+// // console.log(todoString)
+// // localStorage.setItem("todo", todoString)
 
-  try {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&append_to_response=credits`,
-      options
-    );
-    const data = await res.json();
+// // btn.addEventListener('click', () => {
+// //     alert("저장완료!");
+// // })
 
-    return data;
-  } catch (err) {
-    console.log({ err });
-  }
-};
-
-const showMovieDetails = async () => {
-  const movieDetails = await getMovieDetails();
-  const movieTrailerData = await getMovieTrailer(movieId);
-  if (movieTrailerData.results.length > 0) {
-    const movieKey = movieTrailerData.results[0].key;
-    movieTrailer.src = `https://www.youtube.com/embed/${movieKey}?autoplay=1&mute=1`;
-  } else {
-    movieTrailer.style.display = "none";
-  }
-
-  movieTitle.textContent = movieDetails.title;
-  movieBackdrop.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path})`;
-  moviePoster.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movieDetails.poster_path})`;
-  voteAverage.textContent = `${movieDetails.vote_average}`;
-  if (movieDetails.overview) {
-    movieOverview.textContent = `${movieDetails.overview}`;
-  } else {
-    movieOverview.textContent = `줄거리 정보가 없습니다.`;
-  }
-
-  const director = movieDetails.credits.crew.find(
-    (person) => person.job === "Director"
-  );
-  movieDirector.textContent = `${director.name}`;
-
-  const cast = movieDetails.credits.cast.slice(0, 3);
-
-  const castContainer = document.createElement("div");
-  castContainer.classList.add("cast-container");
-
-  for (const actor of cast) {
-    const actorContainer = document.createElement("div");
-    actorContainer.classList.add("actor-container");
-
-    const actorImage = document.createElement("img");
-    actorImage.src = `https://image.tmdb.org/t/p/w200/${actor.profile_path}`;
-    actorImage.alt = actor.name;
-
-    const actorName = document.createElement("p");
-    actorName.textContent = actor.name;
-
-    actorContainer.appendChild(actorImage);
-    actorContainer.appendChild(actorName);
-    castContainer.appendChild(actorContainer);
-  }
-
-  movieCast.appendChild(castContainer);
-
-  const genres = movieDetails.genres.map((genre) => genre.name);
-  movieGenres.textContent = `${genres.join(", ")}`;
-};
-
-showMovieDetails();
-
-// 김우리
+// // window.onload = () => {
+// //     if(localStorage.getItem("review")){
+// //         if(confirm("최근작성한글을 불러오심?")){
+// //             document.querySelector(".area").innerText =
+// //             localStorage.getItem("review");
+// //         } else {
+// //             localStorage.removeItem("review");
+// //         }
+// //     }
+// // }
+// ]
 const boardTableBody = document.querySelector("#board-body");
 
 const contentsContainer = document.querySelector(".contents__container");
@@ -110,6 +53,56 @@ let date = new Date();
 let views = Math.floor(Math.random() * 99) + 1;
 let delBtn = "X";
 
+// function onTitleClick(e) {
+//     contentsContainer.textContent = '';
+//     const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
+//     const index = e.target.parentNode.id.replace(/[a-z|-]/gi, '');
+
+//     const contentsTitles = document.createElement('div');
+//     contentsTitles.classList.add('contents__titles');
+
+//     const contentsColumnFirst = document.createElement('div');
+//     contentsColumnFirst.classList.add('contents__column');
+
+//     const contentsTitle = document.createElement('div');
+//     contentsTitle.classList.add('contents__title');
+//     contentsTitle.textContent = lists[index].title;
+
+//     // contents__titles > column >author, date, views
+//     const contentsColumnSecond = document.createElement('div');
+//     contentsColumnSecond.classList.add('contents__column');
+
+//     const contentsAuthor = document.createElement('div');
+//     contentsAuthor.classList.add('contents__author');
+//     contentsAuthor.textContent = lists[index].author;
+
+//     const contentsDate = document.createElement('div');
+//     contentsDate.classList.add('contents__date');
+//     contentsDate.textContent = lists[index].date;
+
+//     const contentsViews = document.createElement('div');
+//     contentsViews.classList.add('contents__views');
+//     contentsViews.textContent = lists[index].views;
+
+//     const contentsContent = document.createElement('div');
+//     contentsContent.classList.add('contents__content');
+//     contentsContent.textContent = lists[index].content;
+
+//     contentsColumnFirst.appendChild(contentsTitle);
+
+//     contentsColumnSecond.appendChild(contentsAuthor);
+//     contentsColumnSecond.appendChild(contentsDate);
+//     contentsColumnSecond.appendChild(contentsViews);
+
+//     contentsTitles.appendChild(contentsColumnFirst);
+//     contentsTitles.appendChild(contentsColumnSecond);
+
+//     contentsContainer.appendChild(contentsTitles);
+//     contentsContainer.appendChild(contentsContent);
+// }
+
+/////////////////
+
 //인덱싱 ()
 function assignIndex() {
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
@@ -120,7 +113,7 @@ function assignIndex() {
   }
 }
 
-// 제출 / 작성하기 enter//
+// 제출 / 작성하기 enter
 function onEditorFormSubmit(e) {
   e.preventDefault();
 
@@ -342,7 +335,6 @@ function showBoardListsNewPage(pageIndex) {
       // `#link-to-content${index}`
       // );
       // linkToContent.addEventListener('click', onTitleClick);
-      //
     }
   });
 }
