@@ -8,3 +8,21 @@ export const getDailyBoxofficeList = async () => {
   );
   return res.json();
 };
+
+export const getMovieTrailer = async (movieId) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOWNlMTYzMDJiYjIxYWYxNjRkNjM1Y2NjZjNjNGE4ZSIsInN1YiI6IjY0NzQ4ZDM1NWNkMTZlMDBkYzNlOTVmZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kSQ79jOPTs3KVTz2J-T2d5L8YSztqvG-uzemUT3TVPA'
+    }
+  };
+  try {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=ko-kr`, options);
+    const data = await res.json();
+
+    return data;
+  } catch (err) {
+    console.log({ err });
+  }
+}
