@@ -66,6 +66,47 @@ const showData = async () => {
   makeMovieList(data.results);
 };
 
+const sortname = async () => {
+  movieListContainer.innerHTML = "";
+  data = await getTopRatedMovies();
+  data.results.sort((a, b) => {
+    if (a.title > b.title) {
+      return 1;
+    }
+    if (a.title < b.title) {
+      return -1;
+    }
+    if ((a.title = b.title)) {
+      return 0;
+    }
+  });
+  makeMovieList(data.results.sort());
+};
+
+const sortvote = async () => {
+  movieListContainer.innerHTML = "";
+  data = await getTopRatedMovies();
+  data.results.sort((a, b) => {
+    if (a.vote_average > b.vote_average) {
+      return -1;
+    }
+    if (a.vote_average < b.vote_average) {
+      return 1;
+    }
+    if ((a.vote_average = b.vote_average)) {
+      return 0;
+    }
+  });
+  makeMovieList(data.results.sort());
+  console.log(data.results.sort());
+};
+
+const name = document.getElementById("name");
+name.onclick = sortname;
+
+const vote = document.getElementById("vote");
+vote.onclick = sortvote;
+
 const searchMovie = async () => {
   // 1. search-input에 있는 키워드부터 가져오기
   const keyword = searchInput.value.toLowerCase();
