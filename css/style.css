@@ -20,9 +20,6 @@ header {
   color: black;
 }
 
-header > h1 {
-  font-size: 45px;
-}
 /* 탭 버튼 */
 .movie-tab {
   display: flex;
@@ -32,7 +29,7 @@ header > h1 {
   padding: 0;
   gap: 1em;
   font-weight: 800;
-  font-size: 20px;
+  letter-spacing: -1px;
 }
 
 .movie-list-tab,
@@ -199,7 +196,7 @@ h3 {
   margin: 20px;
   padding: 20px;
   width: 300px;
-  height: 610px;
+  height: 600px;
   justify-self: center;
   background-color: #d3d3d3;
   border-radius: 10px;

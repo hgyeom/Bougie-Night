@@ -194,7 +194,8 @@ input {
 .main__container {
   width: 800px;
   height: 550px;
-  padding-top: 35px;
+  margin-top: 35px;
+  padding-top: 3px;
   padding-bottom: 10px;
   color: #222222;
 }
