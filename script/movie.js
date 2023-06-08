@@ -130,14 +130,17 @@ function onEditorFormSubmit(e) {
 
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
   if (title === "") {
-    e.preventDefault();
-    alert("성함을 입력해 주세요");
+    // e.preventDefault();
+    alert("성함을 해주세요");
+    titleInput.focus();
   } else if (psw === "") {
-    e.preventDefault();
-    alert("비밀번호를 입력해 주세요");
+    // e.preventDefault();
+    alert("비밀번호를 입력해주세요");
+    pswInput.focus();
   } else if (content === "") {
-    e.preventDefault();
-    alert("후기를 작성해 주세요");
+    // e.preventDefault();
+    alert("후기를 작성해주세요");
+    contentInput.focus();
   } else if (!lists) {
     const objArr = [];
     objArr.push({
@@ -151,6 +154,10 @@ function onEditorFormSubmit(e) {
     });
 
     localStorage.setItem(BOARDLIST_LS, JSON.stringify(objArr));
+    titleInput.value = "";
+    contentInput.value = "";
+    window.location.reload();
+    titleInput.focus();
   } else {
     lists.push({
       num: `${nums++}`,
@@ -161,11 +168,11 @@ function onEditorFormSubmit(e) {
       views: `${views++}`,
     });
     localStorage.setItem(BOARDLIST_LS, JSON.stringify(lists));
+    titleInput.value = "";
+    contentInput.value = "";
+    window.location.reload();
+    titleInput.focus();
   }
-  titleInput.value = "";
-  contentInput.value = "";
-  titleInput.focus();
-  window.location.reload();
 }
 
 // removeBtn을 클릭하면 얘가 실행된다.
