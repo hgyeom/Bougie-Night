@@ -100,57 +100,7 @@ let date = new Date();
 let views = Math.floor(Math.random() * 99) + 1;
 let delBtn = "X";
 
-// function onTitleClick(e) {
-//     contentsContainer.textContent = '';
-//     const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
-//     const index = e.target.parentNode.id.replace(/[a-z|-]/gi, '');
-
-//     const contentsTitles = document.createElement('div');
-//     contentsTitles.classList.add('contents__titles');
-
-//     const contentsColumnFirst = document.createElement('div');
-//     contentsColumnFirst.classList.add('contents__column');
-
-//     const contentsTitle = document.createElement('div');
-//     contentsTitle.classList.add('contents__title');
-//     contentsTitle.textContent = lists[index].title;
-
-//     // contents__titles > column >author, date, views
-//     const contentsColumnSecond = document.createElement('div');
-//     contentsColumnSecond.classList.add('contents__column');
-
-//     const contentsAuthor = document.createElement('div');
-//     contentsAuthor.classList.add('contents__author');
-//     contentsAuthor.textContent = lists[index].author;
-
-//     const contentsDate = document.createElement('div');
-//     contentsDate.classList.add('contents__date');
-//     contentsDate.textContent = lists[index].date;
-
-//     const contentsViews = document.createElement('div');
-//     contentsViews.classList.add('contents__views');
-//     contentsViews.textContent = lists[index].views;
-
-//     const contentsContent = document.createElement('div');
-//     contentsContent.classList.add('contents__content');
-//     contentsContent.textContent = lists[index].content;
-
-//     contentsColumnFirst.appendChild(contentsTitle);
-
-//     contentsColumnSecond.appendChild(contentsAuthor);
-//     contentsColumnSecond.appendChild(contentsDate);
-//     contentsColumnSecond.appendChild(contentsViews);
-
-//     contentsTitles.appendChild(contentsColumnFirst);
-//     contentsTitles.appendChild(contentsColumnSecond);
-
-//     contentsContainer.appendChild(contentsTitles);
-//     contentsContainer.appendChild(contentsContent);
-// }
-
-/////////////////
-
-//인덱싱 ()
+///////////////////인덱싱 ()
 function assignIndex() {
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
   if (!lists) {
@@ -169,7 +119,16 @@ function onEditorFormSubmit(e) {
   const title = titleInput.value;
 
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
-  if (!lists) {
+  if (title === "") {
+    e.preventDefault();
+    alert("성함을 해주세요");
+  } else if (psw === "") {
+    e.preventDefault();
+    alert("비밀번호를 입력해주세요");
+  } else if (content === "") {
+    e.preventDefault();
+    alert("후기를 작성해주세요");
+  } else if (!lists) {
     const objArr = [];
     objArr.push({
       num: `${nums++}`,
@@ -233,16 +192,6 @@ document.addEventListener("mouseup", function (e) {
     modal.style.display = "none";
   }
 });
-
-// const arrList = JSON.parse(localStorage.getItem(BOARDLIST_LS));
-//     arrList.forEach((arr, passwards) => {
-//     if(passwards === ''){
-//         removeItem('')
-//     }else{
-//         alert('Passward is wrong!');
-//     }
-// })
-
 // localStorage 저장하고 불러오기
 function showBoardLists() {
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
@@ -298,7 +247,7 @@ function showBoardLists() {
       const linkToContent = document.querySelector(`#link-to-content${index}`);
       // linkToContent.addEventListener('click', onTitleClick);
 
-      // 게시글 5개[인덱싱번호] 이상 시 페이지 넘어가게
+      // 게시글 5개[인덱싱번호] 이상 시 페이지 넘어가게//
     } else if (index === 5) {
       const boardIndexMax = Math.ceil(lists.length / 5);
       for (let i = 0; i < boardIndexMax; i++) {

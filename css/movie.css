@@ -66,13 +66,15 @@ body {
 
 .movie-details {
   width: 600px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 .movie-details > h3 {
   width: 80px;
+  font-size: 20px;
   text-align: center;
   float: left;
+
 }
 .movie-details p {
   width: 200px;
@@ -80,6 +82,18 @@ body {
   margin: 10px 0px 10px 0px;
   padding-left: 40px;
 }
+<<<<<<< HEAD
+#movie-genres,
+#vote-average,
+#movie-director {
+  width: 350px;
+  margin-bottom: 30px;
+}
+/* #vote-average {
+  margin: 10px;
+} */
+=======
+>>>>>>> ce0833125b672ed69e27d5dfb1a63da76f106dcb
 
 #movie-overview {
   width: 800px;
@@ -88,6 +102,8 @@ body {
 }
 
 .cast-container {
+  margin-top: 40px;
+  margin-left: -50px;
   display: flex;
   align-items: center;
 }
