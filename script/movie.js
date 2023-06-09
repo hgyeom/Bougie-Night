@@ -130,15 +130,12 @@ function onEditorFormSubmit(e) {
 
   const lists = JSON.parse(localStorage.getItem(BOARDLIST_LS));
   if (title === "") {
-    // e.preventDefault();
     alert("성함을 해주세요");
     titleInput.focus();
   } else if (psw === "") {
-    // e.preventDefault();
     alert("비밀번호를 입력해주세요");
     pswInput.focus();
   } else if (content === "") {
-    // e.preventDefault();
     alert("후기를 작성해주세요");
     contentInput.focus();
   } else if (!lists) {
@@ -221,8 +218,6 @@ function showBoardLists() {
       removeBtn.textContent = "❌";
       removeBtn.id = list.num;
       removeBtn.addEventListener("click", () => {
-        // 모달창 띄우기
-        // showModal(removeBtn.id);
         delInfo(removeBtn.id);
       });
       tr.appendChild(tdNum);
@@ -233,8 +228,6 @@ function showBoardLists() {
       tr.appendChild(removeBtn);
 
       boardTableBody.appendChild(tr);
-      // const linkToContent = document.querySelector(`#link-to-content${index}`);
-      // linkToContent.addEventListener('click', onTitleClick);
 
       // 게시글 5개[인덱싱번호] 이상 시 페이지 넘어가게
     } else if (index === 5) {
@@ -294,8 +287,6 @@ function showBoardListsNewPage(pageIndex) {
       removeBtn.textContent = "❌";
       removeBtn.id = list.num;
       removeBtn.addEventListener("click", () => {
-        // 모달창 띄우기
-        // showModal(removeBtn.id);
         delInfo(removeBtn.id);
       });
       tr.appendChild(tdNum);

@@ -25,8 +25,6 @@ const getTopRatedMovies = async () => {
   }
 };
 
-//??
-
 const makeMovieList = (moviesData) => {
   moviesData.forEach((item) => {
     const movieItem = document.createElement("div");
