@@ -17,6 +17,7 @@
 
 -   [1. 프로젝트 소개]
 -   [2. 기술스택]
+-   [3. API]
 
 ## 1. 프로젝트 소개
 TMDB와 영화진흥위원회의 API를 사용하여 영화 정보를 가져오는 사이트 입니다.
@@ -25,6 +26,11 @@ TMDB와 영화진흥위원회의 API를 사용하여 영화 정보를 가져오�
   * <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
   * <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
   * <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+
+## 3. API
+ * TMDB
+ * 영화진흥위원회
+
 
 
 
